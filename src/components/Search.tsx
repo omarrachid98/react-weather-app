@@ -10,7 +10,7 @@ const Search = ({search, onChangeSearch, onSearchSubmit} : Props) => {
     return (
         <form onSubmit={onSearchSubmit} className='w-full'>
             <input 
-                className="outline-none p-4 w-full"
+                className="outline-none rounded-full p-4 w-full"
                 type="text" 
                 name="search" 
                 id="search" 
