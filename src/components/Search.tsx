@@ -1,10 +1,5 @@
 import React from "react";
-
-type Props = {
-    search: string,
-    onSearchSubmit: React.FormEventHandler<HTMLFormElement>
-    onChangeSearch: React.ChangeEventHandler<HTMLInputElement>
-}
+import { SearchProps } from "../types/types";
 
 const Search = ({search, onChangeSearch, onSearchSubmit} : Props) => {
     return (

@@ -1,3 +1,4 @@
+//@ts-ignore
 import logo from './logo.svg';
 import './App.css';
 import React, { useState } from 'react';
@@ -5,12 +6,17 @@ import React, { useState } from 'react';
 import Layout from './components/Layout.tsx';
 // @ts-ignore
 import Search from './components/Search.tsx';
+import { WeatherData } from './types/types';
+//@ts-ignore
+import ShowWeather from './components/ShowWeather.tsx';
+//@ts-ignore
+import Loader from './components/Loader.tsx'
 
 function App() {
 
   const [search, setSearch] = useState('');
   const [loader, setLoader] = useState(false);
-  const [weather, setWeather] = useState([]);
+  const [weather, setWeather] = useState<WeatherData>();
   const [error, setError] = useState('');
 
   const handleSearchChange = (e) => {
@@ -20,19 +26,21 @@ function App() {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
-    let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.REACT_APP_WEATHERMAP_API_KEY}`
+    let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=${process.env.REACT_APP_WEATHERMAP_API_KEY}&lang=it`
     fetchWearher(endpoint);
-
+  
   }
 
   const fetchWearher = async (url) => {
     try {
-      
+
+      setLoader(true);
       const fecthData = await fetch(url);
       const data = await fecthData.json();
 
-      setWeather(data.weather)
+      setWeather(data);
       setLoader(false);
+      setSearch('');
 
     } catch (error) {
       setError(error);
@@ -44,11 +52,23 @@ function App() {
     <Layout>
       <img src={logo} className="App-logo" alt="logo" />
       <h1 className='text-4xl my-6'>React weather app</h1>
-      <Search 
+      {weather && 
+          <ShowWeather
+            error={error}
+            weatherData={weather}
+            loader={loader}
+
+          />
+      }
+      {loader ?
+        <Loader />
+      :
+        <Search 
           search={search}
           onChangeSearch={handleSearchChange}
           onSearchSubmit={handleSearchSubmit}
         />
+      }
     </Layout>
   );
 }
