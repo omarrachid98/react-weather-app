@@ -9,9 +9,13 @@ const ShowWeather = ({weatherData} : WeatherProps) => {
         * fix types
         * added some new css
     */
-   
+
     const kelvinToCelsius = (temp) => {
         return Math.floor(temp - 273.15);
+    }
+
+    const capitalizeText = (text: string) => {
+        return text.charAt(0).toUpperCase() + text.slice(1);
     }
 
     //set background color based on current weather data
@@ -19,6 +23,13 @@ const ShowWeather = ({weatherData} : WeatherProps) => {
         Rain: 'bg-gray-900',
         Clouds: 'bg-gray-400',
         Clear: 'bg-blue-400'
+    }
+
+    const mapMainWeather = {
+        Clouds : 'Nuvoloso',
+        Clear: 'Soleggiato',
+        Rain: 'Pioggia',
+        Frosty: 'Nebbia'
     }
 
     return (
@@ -32,10 +43,10 @@ const ShowWeather = ({weatherData} : WeatherProps) => {
                         <div className={`${weatherBkgColor[weather.main]} w-full h-full flex flex-col items-center justify-center py-10 rounded-xl border-2 border-solid border-white`}>
                             <div className="flex items-center justify-center flex-col">
                                 <img src={urlIcon} alt="weather_icon" />
-                                <h3 className="text-white"> {temp} C </h3>
+                                <h3 className="text-white"> {temp} &deg;C </h3>
                             </div>
-                            <h1>{weather.main}</h1>
-                            <p>{weather.description}</p>
+                            <h1>{mapMainWeather[weather.main]}</h1>
+                            <p>{capitalizeText(weather.description)}</p>
                         </div>
                     </div>
                 )
