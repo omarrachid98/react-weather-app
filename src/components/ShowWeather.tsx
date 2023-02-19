@@ -46,7 +46,7 @@ const ShowWeather = ({weatherData} : WeatherProps) => {
                                 <h3 className="text-white"> {temp} &deg;C </h3>
                             </div>
                             <h1>{mapMainWeather[weather.main]}</h1>
-                            <p>{capitalizeText(weather.description)}</p>
+                            <p className="text-white">{capitalizeText(weather.description)}</p>
                         </div>
                     </div>
                 )
