@@ -52,13 +52,12 @@ function App() {
     <Layout>
       <img src={logo} className="App-logo" alt="logo" />
       <h1 className='text-4xl my-6'>React weather app</h1>
-      {weather && 
+      {weather &&
           <ShowWeather
-            error={error}
             weatherData={weather}
-            loader={loader}
-
+            search={search}
           />
+      
       }
       {loader ?
         <Loader />

@@ -9,8 +9,7 @@ export type WeatherData = {
 }
 
 export type WeatherProps = {
-    error: string,
-    loader: boolean,
+    search: string,
     weatherData: any
 }
 
