@@ -119,6 +119,7 @@ h1, h2, h3 p {
 /* style for search bar */
 .container-input {
   position: relative;
+  margin-bottom: 80px;
 }
 
 .input {

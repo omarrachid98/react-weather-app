@@ -46,9 +46,9 @@ const ShowWeather = ({weatherData, search} : WeatherProps) => {
                 console.log(weather)
                 return (
                     <div key={index} className="flex flex-col items-center justify-center w-full">
-                        <div className={`${weatherBkgColor[weather.main]} w-full h-full flex flex-col items-center justify-center py-10 rounded-xl border-2 border-solid border-white`}>
+                        <div className={`${weatherBkgColor[weather.main]} w-full h-full flex flex-col items-center justify-center p-6 rounded-xl border-2 border-solid border-white`}>
                             <div className="flex items-center justify-center flex-col my-4">
-                                <h1 className='text-2xl'>Meteo: {name}</h1>
+                                <h1 className='text-2xl text-center'>{name}</h1>
                                 <img src={urlIcon} alt="weather_icon" />
                                 <h3 className="text-white text-2xl"> {kelvinToCelsius(temp)} &deg;C </h3>
                                 <span className='text-white text-xl'> Min: {kelvinToCelsius(temp_min)} &deg;C | Max: {kelvinToCelsius(temp_max)} &deg;C </span>
