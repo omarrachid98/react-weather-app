@@ -12,6 +12,11 @@ To get the frontend running locally:
 
 Local web server will use standard React's port 3000
 
+#### `.env.local`
+
+```dotenv
+REACT_APP_WEATHERMAP_API_KEY = YOUR_WEATHERMAP_API_KEY
+
 ## Packages used
 
 * React
