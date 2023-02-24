@@ -55,7 +55,7 @@ const ShowWeather = ({weatherData, search} : WeatherProps) => {
                             </div>
                             <h3 className='text-white text-2xl'>{mapMainWeather[weather.main]}</h3>
                             <p className="text-white text-xl">{capitalizeText(weather.description)}</p>
-                            <div className='my-6 text-center'>
+                            <div className='my-6 text-center '>
                                 <p className="text-white text-xl"> Nuvolosità:  {clouds}% </p>
                                 <p className="text-white text-xl"> Velocità vento: {speed} m/s </p>
                             </div>
